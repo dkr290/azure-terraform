@@ -61,7 +61,7 @@ data "azuread_group" "aks_administrators" {
 ## is we need different nodepool and subnet
 
 // data "azurerm_subnet" "aks_subnet_nodepool" {
-//   name                 = "dansadmin-aks2-dev"
+//   name                 = "admin-aks2-dev"
 //   resource_group_name = data.azurerm_resource_group.aks_network_rg.name
 //   virtual_network_name = data.azurerm_virtual_network.aks_vnet.name
 
