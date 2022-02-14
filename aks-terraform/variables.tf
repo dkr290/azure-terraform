@@ -89,6 +89,6 @@ variable "public_authorized_ranges" {
 // # Windows Admin Password for k8s worker nodes
 // variable "windows_admin_password" {
 //   type = string
-//   default = "P@ssw0rd1234FprrrN5%%43" //to take from keyvault
+//   default = "xxxxxxx" //to take from keyvault
 //   description = "This variable defines the Windows admin password k8s Worker nodes"  
 // }
