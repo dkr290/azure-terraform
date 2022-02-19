@@ -4,3 +4,5 @@
 *.tfvars
 aks-key
 *.pub
+id-rsa
+ssh-keys
