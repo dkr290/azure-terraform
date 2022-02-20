@@ -6,6 +6,13 @@ resource "azurerm_log_analytics_workspace" "aks-log-analytics" {
   retention_in_days   = 30
 
   tags = local.common_tags
+
+  
+ lifecycle {
+    ignore_changes = [
+      tags,   
+    ]
+ }
 }
 
 # in this case log analytics workspace is already created

@@ -19,6 +19,13 @@
   node_labels = each.value.node_labels
   tags = var.aks_tags
   node_taints =  lookup(each.value, "node_taints", null)
+
+  
+ lifecycle {
+    ignore_changes = [
+      tags,   
+    ]
+ }
   
 }
 

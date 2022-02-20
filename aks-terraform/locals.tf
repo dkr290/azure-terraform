@@ -23,6 +23,22 @@ locals {
      #node_taints = ["key=value:NoSchedule"]
  
    }
+
+  #  test = {
+  #     name = "test"
+  #     max_nodes = 3
+  #     min_nodes = 1
+  #     node_labels = {
+  #      "nodepool-type" = "test"
+  #      "environment"   = "dev"
+  #      "nodepoolos"    = "linux"
+  #      "app"           = "test"
+       
+  #   }
+  #    # if we want to taint the pool, if not just remove the value
+  #    #node_taints = ["key=value:NoSchedule"]
+ 
+  #  }
   }
 
  
