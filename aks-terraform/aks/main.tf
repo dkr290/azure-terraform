@@ -104,7 +104,8 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
  tags = var.aks_tags
  lifecycle {
     ignore_changes = [
-      tags,   
+      tags,
+      kubernetes_version,   
     ]
  }
  depends_on =[
@@ -224,7 +225,8 @@ resource "azurerm_kubernetes_cluster" "aks_cluster_public" {
 
  lifecycle {
     ignore_changes = [
-      tags,   
+      tags, 
+      kubernetes_version,
     ]
  }
  depends_on =[

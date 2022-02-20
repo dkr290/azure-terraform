@@ -10,7 +10,7 @@
   min_count             = each.value.min_nodes
   mode                  = "User"
   name                  =  each.value.name
-  orchestrator_version  = var.aks_kubernetes_version
+  orchestrator_version  = each.value.kubernetes_version
   os_disk_size_gb       = 30
   os_type               = "Linux" # Default is Linux, we can change to Windows
    vm_size               = "Standard_B2s"

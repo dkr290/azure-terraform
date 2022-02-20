@@ -12,8 +12,26 @@ locals {
       name = "astronomer"
       max_nodes = 3
       min_nodes = 1
+      kubernetes_version = "1.21.9"
       node_labels = {
        "nodepool-type" = "astronomer"
+       "environment"   = "dev"
+       "nodepoolos"    = "linux"
+       "app"           = "astronomer"
+       "astronomer"    = "true"
+    }
+     # if we want to taint the pool, if not just remove the value
+     #node_taints = ["key=value:NoSchedule"]
+ 
+   }
+
+   astropool224 = {
+      name = "astropool224"
+      max_nodes = 3
+      min_nodes = 1
+      kubernetes_version = "1.22.4"
+      node_labels = {
+       "nodepool-type" = "astronomer2204"
        "environment"   = "dev"
        "nodepoolos"    = "linux"
        "app"           = "astronomer"
