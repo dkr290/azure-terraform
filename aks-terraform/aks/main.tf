@@ -18,7 +18,7 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
   default_node_pool {
     name                 = "defaultpool"
     vm_size              = var.aks_default_pool_size 
-    orchestrator_version = var.aks_kubernetes_version
+    
     //availability_zones   = [1, 2, 3]
     enable_auto_scaling  = true
     max_count            = var.autoscaling_max_count
@@ -27,8 +27,8 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     type                 = "VirtualMachineScaleSets"
     vnet_subnet_id       = var.aks_vnet_subnet_id
     node_labels = var.aks_node_labels
-    tags = var.aks_tags
     only_critical_addons_enabled =true
+  
   }
 
 
@@ -132,7 +132,7 @@ resource "azurerm_kubernetes_cluster" "aks_cluster_public" {
   default_node_pool {
     name                 = "defaultpool"
     vm_size              = var.aks_default_pool_size 
-    orchestrator_version = var.aks_kubernetes_version
+   
    // availability_zones   = [1, 2, 3]
     enable_auto_scaling  = true
     max_count            = var.autoscaling_max_count
@@ -142,7 +142,7 @@ resource "azurerm_kubernetes_cluster" "aks_cluster_public" {
     vnet_subnet_id       = var.aks_vnet_subnet_id
     node_labels = var.aks_node_labels
     only_critical_addons_enabled =true
-    //tags = var.aks_tags
+   
     
 
   }
@@ -227,6 +227,7 @@ resource "azurerm_kubernetes_cluster" "aks_cluster_public" {
     ignore_changes = [
       tags, 
       kubernetes_version,
+      
     ]
  }
  depends_on =[

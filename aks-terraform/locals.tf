@@ -1,46 +1,46 @@
 locals {
    default_nodepool_node_labels = {
-      "nodepool-type" = "default"
+      "nodepool-type" = "system"
       "environment"   = "dev"
       "nodepoolos"    = "linux"
-      "app"           = "default-apps"
-      "astronomer"    = "true"
+      
     }
-
+  
   node_pools ={
-    astronomer = {
-      name = "astronomer"
+    #comment out to delete it when the new one with 22.4 has been created and when it is disabled for sheuling new pods to it
+    blue219 = {
+      name = "blue219"
       max_nodes = 3
       min_nodes = 1
       kubernetes_version = "1.21.9"
       node_labels = {
-       "nodepool-type" = "astronomer"
+       "nodepool-type" = "blue219"
        "environment"   = "dev"
        "nodepoolos"    = "linux"
        "app"           = "astronomer"
        "astronomer"    = "true"
     }
-     # if we want to taint the pool, if not just remove the value
+   ##  if we want to taint the pool, if not just remove the value
      #node_taints = ["key=value:NoSchedule"]
  
-   }
+  }
 
-   astropool224 = {
-      name = "astropool224"
-      max_nodes = 3
-      min_nodes = 1
-      kubernetes_version = "1.22.4"
-      node_labels = {
-       "nodepool-type" = "astronomer2204"
-       "environment"   = "dev"
-       "nodepoolos"    = "linux"
-       "app"           = "astronomer"
-       "astronomer"    = "true"
-    }
-     # if we want to taint the pool, if not just remove the value
-     #node_taints = ["key=value:NoSchedule"]
+  #  blue224 = {
+  #     name = "blue224"
+  #     max_nodes = 3
+  #     min_nodes = 1
+  #     kubernetes_version = "1.22.4"
+  #     node_labels = {
+  #      "nodepool-type" = "blue224"
+  #      "environment"   = "dev"
+  #      "nodepoolos"    = "linux"
+  #      "app"           = "astronomer"
+  #      "astronomer"    = "true"
+  #   }
+  #    # if we want to taint the pool, if not just remove the value
+  #    #node_taints = ["key=value:NoSchedule"]
  
-   }
+  #  }
 
   #  test = {
   #     name = "test"
