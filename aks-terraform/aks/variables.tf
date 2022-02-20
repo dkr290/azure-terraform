@@ -24,4 +24,5 @@ variable "aks_public_authorized_ranges" {
 }
 variable "aks_azure_keyvault_secrets_provider" {}
 variable "aks_aksrole_zone_principal_id" {}
+variable "aks_node_pools" {}
 

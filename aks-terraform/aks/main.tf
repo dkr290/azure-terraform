@@ -28,6 +28,7 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     vnet_subnet_id       = var.aks_vnet_subnet_id
     node_labels = var.aks_node_labels
     tags = var.aks_tags
+    only_critical_addons_enabled =true
   }
 
 
@@ -139,7 +140,9 @@ resource "azurerm_kubernetes_cluster" "aks_cluster_public" {
     type                 = "VirtualMachineScaleSets"
     vnet_subnet_id       = var.aks_vnet_subnet_id
     node_labels = var.aks_node_labels
+    only_critical_addons_enabled =true
     //tags = var.aks_tags
+    
 
   }
 
