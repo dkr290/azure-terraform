@@ -11,7 +11,7 @@
   mode                  = "User"
   name                  =  each.value.name
   orchestrator_version  = each.value.kubernetes_version
-  os_disk_size_gb       = 30
+  os_disk_size_gb       = each.value.os_disk_size
   os_type               = "Linux" # Default is Linux, we can change to Windows
    vm_size               = each.value.vm_size
    priority              = "Regular"  # Default is Regular, we can change to Spot with additional settings like eviction_policy, spot_max_price, node_labels and node_taints
