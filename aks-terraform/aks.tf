@@ -3,7 +3,7 @@
 
 module "aks_cluster" {
   source = "./aks"
-  aks_name =  "aks-cluster-${lower(var.environment)}"
+  aks_name =  "${var.aks_name_prefix}-${lower(var.environment)}"
   location = azurerm_resource_group.aks_rg.location
   resource_group_name = azurerm_resource_group.aks_rg.name
   aks_dns_prefix = "aks-cluster-${lower(var.environment)}" #dns prefix 
