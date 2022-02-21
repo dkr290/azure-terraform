@@ -13,7 +13,7 @@
   orchestrator_version  = each.value.kubernetes_version
   os_disk_size_gb       = 30
   os_type               = "Linux" # Default is Linux, we can change to Windows
-   vm_size               = "Standard_B2s"
+   vm_size               = each.value.vm_size
    priority              = "Regular"  # Default is Regular, we can change to Spot with additional settings like eviction_policy, spot_max_price, node_labels and node_taints
   vnet_subnet_id        = var.aks_vnet_subnet_id #optional we can force this nodepool to go to another dedicated network
   node_labels = each.value.node_labels
