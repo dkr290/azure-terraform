@@ -12,6 +12,7 @@ locals {
       name = "blue219"
       max_nodes = 3
       min_nodes = 1
+      vm_size = "Standard_B2s"
       kubernetes_version = "1.21.9"
       node_labels = {
        "nodepool-type" = "blue219"
@@ -29,6 +30,7 @@ locals {
   #     name = "blue224"
   #     max_nodes = 3
   #     min_nodes = 1
+  #     vm_size   "Standard_B2s"
   #     kubernetes_version = "1.22.4"
   #     node_labels = {
   #      "nodepool-type" = "blue224"
@@ -46,6 +48,7 @@ locals {
   #     name = "test"
   #     max_nodes = 3
   #     min_nodes = 1
+   #    vm_size = "Standard_B2s"
   #     node_labels = {
   #      "nodepool-type" = "test"
   #      "environment"   = "dev"
