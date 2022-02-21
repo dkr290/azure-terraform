@@ -74,7 +74,9 @@ variable "public_authorized_ranges" {
   default = ["xxx.xxx.xx.xx/32"]
 }
 
-
+variable "aks_name_prefix" {
+  default = "aks-cluster"
+}
 
 
 
