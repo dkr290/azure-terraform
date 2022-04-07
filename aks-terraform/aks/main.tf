@@ -46,26 +46,23 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
   #user assigned identity
   identity {
     type                      = "UserAssigned"
-    user_assigned_identity_id = var.aks_user_assigned_identity
+    identity_ids= [var.aks_user_assigned_identity]
   }
 
 
   # Add On Profiles for log analytics integration
-  addon_profile {
-    azure_policy { enabled = true }
-    oms_agent {
-      enabled                    = true
+  azure_policy_enabled = true
+  oms_agent {
+      
       log_analytics_workspace_id = var.aks_log_analytics_workspace
     }
-  }
-  
 
 
   #uncomment this line and comment line below to enable directly integration with AD. It could be enabled later from GUI on aks
   # RBAC and Azure AD Integration Block
-  role_based_access_control {
-    enabled = var.aks_role_based_access_control
-    azure_active_directory {
+  role_based_access_control_enabled = true 
+    
+    azure_active_directory_role_based_access_control {
       managed                = true
       admin_group_object_ids = var.aks_rbac_ad_group_admin
       azure_rbac_enabled     = true
@@ -73,7 +70,6 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
       # server_app_id = data.azurerm_key_vault_secret.sp-client-id.value
       # server_app_secret =  data.azurerm_key_vault_secret.sp-client-secret.value
     }
-  }
 
   #RBAC always should be enabled
   // role_based_access_control {
@@ -98,7 +94,7 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
   # Network Profile
   network_profile {
     network_plugin    = "azure"
-    load_balancer_sku = "Standard"
+    load_balancer_sku = "standard"
   }
 
  tags = var.aks_tags
@@ -162,30 +158,34 @@ resource "azurerm_kubernetes_cluster" "aks_cluster_public" {
   #user assigned identity
   identity {
     type                      = "UserAssigned"
-    user_assigned_identity_id = var.aks_user_assigned_identity
+    identity_ids= [var.aks_user_assigned_identity]
   }
 
 
   # Add On Profiles for log analytics integration
-  addon_profile {
-    azure_policy { enabled = true }
-    oms_agent {
-      enabled                    = true
+  azure_policy_enabled = true
+  oms_agent {
+      
       log_analytics_workspace_id = var.aks_log_analytics_workspace
     }
-    azure_keyvault_secrets_provider {
-      enabled =  var.aks_azure_keyvault_secrets_provider 
+ 
+    
+  # keyvault_secrets_provider {
+
+  #  secret_rotation_enabled =true
+  #  secret_rotation_interval = '2m'
+  # }
+    
       
-      }
-  }
+      
   
 
 
   #uncomment this line and comment line below to enable directly integration with AD. It could be enabled later from GUI on aks
   # RBAC and Azure AD Integration Block
-  role_based_access_control {
-    enabled = var.aks_role_based_access_control
-    azure_active_directory {
+  role_based_access_control_enabled = true 
+    
+    azure_active_directory_role_based_access_control {
       managed                = true
       admin_group_object_ids = var.aks_rbac_ad_group_admin
       azure_rbac_enabled     = true
@@ -193,7 +193,7 @@ resource "azurerm_kubernetes_cluster" "aks_cluster_public" {
       # server_app_id = data.azurerm_key_vault_secret.sp-client-id.value
       # server_app_secret =  data.azurerm_key_vault_secret.sp-client-secret.value
     }
-  }
+ 
 
   #RBAC always should be enabled
   // role_based_access_control {
@@ -218,7 +218,7 @@ resource "azurerm_kubernetes_cluster" "aks_cluster_public" {
   # Network Profile
   network_profile {
     network_plugin    = "azure"
-    load_balancer_sku = "Standard"
+    load_balancer_sku = "standard"
   }
 
  tags = var.aks_tags
