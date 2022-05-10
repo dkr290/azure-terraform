@@ -47,6 +47,8 @@ module "aks_cluster" {
   # What kind of nodepools to create in addition to the default one
   aks_node_pools = local.node_pools
   aks_private_dns_zone = var.private_dns_zone
+  aks_public_authorized_ranges= var.public_autohorized_ranges
+  
 
  
   depends_on =[

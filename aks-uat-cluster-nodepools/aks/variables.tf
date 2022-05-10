@@ -19,9 +19,8 @@ variable "aks-key" {
     default = "aks-key.pub"
 }
 variable "aks_vnet_subnet_id" {}
-variable "aks_public_authorized_ranges" {
-    default = ["165.225.194.199/32","85.68.46.222/32","137.116.252.98/32"]
-}
+variable "aks_public_authorized_ranges" {}
+
 variable "aks_aksrole_zone_principal_id" {}
 variable "aks_azure_keyvault_secrets_provider" {}
 variable "aks_node_pools" {}

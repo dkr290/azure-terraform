@@ -36,7 +36,7 @@ locals {
     astro219 = {
       name = "pool219"
       # autoscaling from 2 to more nodes
-      max_nodes = 10
+      max_nodes = 3
       min_nodes = 2
       ## the vm size
       vm_size = "Standard_B2s"
@@ -55,7 +55,28 @@ locals {
      #node_taints = ["key=value:NoSchedule"]
  
   }
-    
+    # astro224 = {
+    #   name = "pool224"
+    #   # autoscaling from 2 to more nodes
+    #   max_nodes = 3
+    #   min_nodes = 2
+    #   ## the vm size
+    #   vm_size = "Standard_D2s_v3"
+    #   # the kubernetes version
+    #   k_version = "1.22.4"
+    #   # The disk size of the worker nodes
+    #   os_disk_size = 32
+    #   node_labels = {
+    #    "nodepool-type" = "ondemand"
+    #    "environment"   = var.environment
+    #    "nodepoolos"    = "linux"
+    #    "app"           = "aks"
+       
+    # }
+   ##  if we want to taint the pool, if not just remove the value
+     #node_taints = ["key=value:NoSchedule"]
+ 
+  }
 
   #  astro224 = {
   #     name = "astro224"
@@ -73,6 +94,6 @@ locals {
   #    #node_taints = ["key=value:NoSchedule"]
  
   #  }
-    }
-
 }
+
+

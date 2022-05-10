@@ -79,7 +79,7 @@ variable "private_cluster"{
 
 # Ranges for the storage account
 variable "public_autohorized_ranges" {
-default = ["85.68.46.222/32"]
+description = "[x.x.x.x/32,x.x.x.x/30]"
 }
  # Whether to enable csi driver under investigation for now
 variable "kv_secrets_csi_driver"{
@@ -87,6 +87,7 @@ variable "kv_secrets_csi_driver"{
 }
 
 variable "private_dns_zone" {
+  default= "aksuat.privatelink.northeurope.azmk8s.io"
   description = "the private DNS zone for aks"
 }
 
