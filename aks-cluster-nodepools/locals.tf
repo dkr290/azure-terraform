@@ -33,15 +33,37 @@ locals {
     node_pools ={
     ###comment out to delete it when the new one with 22.4 has been created and when it is disabled for sheuling new pods to it
     ## The idea is that this pool will contain astro219 with kubernetes version 21.9 and the other will be created when needs to abgrade to 22.4
-    astro219 = {
-      name = "pool219"
+    # pool219 = {
+    #   name = "pool219"
+    #   # autoscaling from 2 to more nodes
+    #   max_nodes = 3
+    #   min_nodes = 2
+    #   ## the vm size
+    #   vm_size = "Standard_B2s"
+    #   # the kubernetes version
+    #   k_version = "1.21.9"
+    #   # The disk size of the worker nodes
+    #   os_disk_size = 32
+    #   node_labels = {
+    #    "nodepool-type" = "ondemand"
+    #    "environment"   = var.environment
+    #    "nodepoolos"    = "linux"
+    #    "app"           = "aks"
+       
+    # }
+   ##  if we want to taint the pool, if not just remove the value
+     #node_taints = ["key=value:NoSchedule"]
+ 
+  # }
+    pool224 = {
+      name = "pool224"
       # autoscaling from 2 to more nodes
       max_nodes = 3
       min_nodes = 2
       ## the vm size
-      vm_size = "Standard_B2s"
+      vm_size = "Standard_D2as_v4"
       # the kubernetes version
-      k_version = "1.21.9"
+      k_version = "1.22.4"
       # The disk size of the worker nodes
       os_disk_size = 32
       node_labels = {
@@ -55,45 +77,8 @@ locals {
      #node_taints = ["key=value:NoSchedule"]
  
   }
-    # astro224 = {
-    #   name = "pool224"
-    #   # autoscaling from 2 to more nodes
-    #   max_nodes = 3
-    #   min_nodes = 2
-    #   ## the vm size
-    #   vm_size = "Standard_D2s_v3"
-    #   # the kubernetes version
-    #   k_version = "1.22.4"
-    #   # The disk size of the worker nodes
-    #   os_disk_size = 32
-    #   node_labels = {
-    #    "nodepool-type" = "ondemand"
-    #    "environment"   = var.environment
-    #    "nodepoolos"    = "linux"
-    #    "app"           = "aks"
-       
-    # }
-   ##  if we want to taint the pool, if not just remove the value
-     #node_taints = ["key=value:NoSchedule"]
- 
-  }
 
-  #  astro224 = {
-  #     name = "astro224"
-  #     max_nodes = 3
-  #     min_nodes = 1
-  #     kubernetes_version = "1.22.4"
-  #     node_labels = {
-  #      "nodepool-type" = "blue224"
-  #      "environment"   = "dev"
-  #      "nodepoolos"    = "linux"
-  #      "app"           = "astronomer"
-  #      "astronomer"    = "true"
-  #   }
-  #    # if we want to taint the pool, if not just remove the value
-  #    #node_taints = ["key=value:NoSchedule"]
- 
-  #  }
+    }
 }
 
 

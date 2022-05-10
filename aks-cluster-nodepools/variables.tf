@@ -51,10 +51,6 @@ variable "kubernetes_version" {
 }
 
 
-variable "aks-network-rg" {
-  default     = "aks-rg"
-  description = "The network resource group with the AKS vnet"
-}
 
 # This is the keyvault to used for adminuser and password for nodepools in case of a need to connect through ssh for troubleshooting purpose to connect
 variable "keyvault_name" {

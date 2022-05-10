@@ -24,7 +24,7 @@ module "aks_cluster" {
   autoscaling_max_count = 4
   autoscaling_min_count = 2
   # The disk size for the worker nodes in this default nodepool
-  aks_os_disk_size_gb  = 80
+  aks_os_disk_size_gb  = 30
   #Is it private cluster boolean. In our case is always private
   aks_private_cluster = var.private_cluster
   # The dedicated subent
