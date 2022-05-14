@@ -48,6 +48,11 @@ module "aks_cluster" {
   aks_node_pools = local.node_pools
   aks_private_dns_zone = var.private_dns_zone
   aks_public_authorized_ranges= var.public_autohorized_ranges
+
+  ##if application gateway is enaled
+  aks_agic_id = azurerm_application_gateway.agic-ingress.id
+ 
+  
   
 
  

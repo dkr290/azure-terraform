@@ -25,4 +25,8 @@ variable "aks_aksrole_zone_principal_id" {}
 variable "aks_azure_keyvault_secrets_provider" {}
 variable "aks_node_pools" {}
 variable "aks_private_dns_zone" {}
+variable "aks_agic_id" {
+    default = "123"
+} 
+
 

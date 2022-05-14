@@ -141,6 +141,15 @@ resource "azurerm_kubernetes_cluster" "aks_cluster_public" {
   }
 
 
+  ingress_application_gateway{
+     gateway_id = var.aks_agic_id  
+
+  } 
+ 
+   
+  
+
+
   # it works without this line but can be enabled in case of private cluster to depend on the role assignment for dns zone
   # depends_on = [
   #     azurerm_role_assignment.aksrole_zone,

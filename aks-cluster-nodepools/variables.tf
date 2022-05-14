@@ -68,6 +68,12 @@ variable "aks-subnet-1" {
   default = "aks-nodepools-subnet"
 }
 
+variable "aks-agic" {
+  default = "agic"
+  description = "The subnet for application gateway ingress controller"
+  
+}
+
 # This is alsways true for bankingcircle clusters for now
 variable "private_cluster"{
   default = "false"
@@ -86,6 +92,7 @@ variable "private_dns_zone" {
   default= "aksuat.privatelink.northeurope.azmk8s.io"
   description = "the private DNS zone for aks"
 }
+
 
 # The aks preffix aks-astronomer or aks-bc
 variable "aks_name_prefix" {
