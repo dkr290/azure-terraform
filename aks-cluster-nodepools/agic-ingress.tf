@@ -11,7 +11,7 @@ data "azurerm_user_assigned_identity" "ingress" {
 resource "azurerm_role_assignment" "ra1" {
   
   scope                = azurerm_resource_group.aks_rg.id
-  role_definition_name = "Reader"
+  role_definition_name = "Contributor"
   principal_id         = data.azurerm_user_assigned_identity.ingress.principal_id
 }
 
